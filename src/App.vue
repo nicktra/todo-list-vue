@@ -9,8 +9,10 @@
       <div class="row content">
         <div class="col-lg-12">
           <div class="work-home">
-            <div v-for="workItem in work" v-bind:key="workItem.id" class="work">
-              <p>{{ workItem.name }}</p>
+            <div class="row">
+              <div v-for="workItem in work" v-bind:key="workItem.id" class="mb-4 work col-lg-12 text-left">
+                <ItemWork v-bind:workItem="workItem" />
+              </div>
             </div>
           </div>
         </div>
@@ -22,6 +24,7 @@
 
 <script>
 import "bootstrap/dist/css/bootstrap.css"
+import ItemWork from './components/ItemWork.vue';
 
 export default {
   name: 'App',
@@ -52,7 +55,7 @@ export default {
     };
   },
   components: {
-
+    ItemWork
   }
 }
 </script>
@@ -73,5 +76,13 @@ export default {
 
 .header h2 {
   margin: 0;
+}
+
+.work .item {
+  font-size: 20px;
+}
+
+.item-completed {
+  color: #1abc9c;
 }
 </style>
