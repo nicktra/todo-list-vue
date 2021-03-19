@@ -1,16 +1,28 @@
 <template>
   <div id="app">
-    <h2>
-      What I Do Today?
-    </h2>
-
-    <div v-for="workItem in work" v-bind:key="workItem.id" class="work">
-      <p>{{ workItem.name }}</p>
+    <div class="container">
+      <div class="row header mb-5 p-3">
+        <div class="col-lg-12">
+          <h2>What I Do Today?</h2>
+        </div>
+      </div>
+      <div class="row content">
+        <div class="col-lg-12">
+          <div class="work-home">
+            <div v-for="workItem in work" v-bind:key="workItem.id" class="work">
+              <p>{{ workItem.name }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    
   </div>
 </template>
 
 <script>
+import "bootstrap/dist/css/bootstrap.css"
+
 export default {
   name: 'App',
   data: function() {
@@ -18,7 +30,23 @@ export default {
       work: [
         {
           id: 1,
-          name: "Cleaning Room"
+          name: "Cleaning Room",
+          isDone: false
+        },
+        {
+          id: 2,
+          name: "Jogging 5 km",
+          isDone: false
+        },
+        {
+          id: 3,
+          name: "Lunch with family",
+          isDone: false
+        },
+        {
+          id: 4,
+          name: "Coding",
+          isDone: false
         }
       ]
     };
@@ -37,5 +65,13 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.header {
+  background: #1abc9c;
+}
+
+.header h2 {
+  margin: 0;
 }
 </style>
